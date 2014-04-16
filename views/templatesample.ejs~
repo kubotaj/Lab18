@@ -1,7 +1,0 @@
-<% include header %>
-<% include menu %>
-<% include content1 %>
-
-<% include resource %>
-<% include footer %>
-

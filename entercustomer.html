@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <title>customer data</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#user-submit').click(function () {
+                var payload = {
+                    name: $('#name').val(),
+                    street: $('#street').val(),
+                    city: $('#city').val(),
+                    state: $('#state').val(),
+                    zip: $('#zip').val(),
+                    phone: $('#phone').val()
+                };
+
+	        console.log(payload);
+
+                $.ajax({
+                    url: "/entercustomer",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header1">
+	<div style="border:5px double;width:50px;float:left">
+	  <b>LOGO</b>
+	</div>
+	 MyBusinessName
+      </div>
+      
+      <div id="header2">
+	<b>Company theme goes in here.</b>
+      </div>
+      
+      <div id="menu">
+	<div style="text-align:center"><b>MENU</b></div>
+	<br />
+	<div style="border:1px solid; text-align:center;">Enter New Data</div>
+	<br />
+	<div style="text-align:center;"><a href="entercustomer.html">Enter Customer</a></div>
+	<div style="text-align:center;"><a href="searchcustomer.html">Search Customer</a></div>
+<!--
+	<div style="text-align:center;"><a href="/productdata.html">Product</a></div>
+-->
+      </div>
+
+      <div id="content">
+	<p><b>Please fill inthe customer data below</b></p>
+	<br />
+	Name: <input id="name" type="text" /><br /><br />
+	Street: <input id="street" type="text" /><br /><br />
+	City: <input id="city" type="text" /><br /><br />
+	State: <input id="state" type="text" /><br /><br />
+	Zip: <input id="zip" type="text" /><br /><br />
+	Phone: <input id="phone" type="text" /><br /><br />
+	<input id="user-submit" type="submit" /><br />
+	<p id="output"></p>
+      </div>
+
+      <div id="resource">
+	<br />
+	<br />
+	
+	<b>History</b><br />
+	<a href="/change1">*Homepage updated(01/02/14)</a><br />
+	<a href="/change1">*Customer data page updated(02/03/14)</a><br />
+	<a href="/change1">*Privacy policy added(03/04/14)</a><br />
+
+	<br />
+
+	<b>Links</b><br />
+	<a href="https://www.google.com/">google</a><br />
+	<a href="https://www.yahoo.com/">yahoo</a><br />
+	<a href="https://www.facebook.com/">facebook</a><br />
+	<a href="http://instagram.com/#">instagram</a><br />
+	<div style="text-align:right;">More>></div>
+
+      </div>
+
+      </div>
+
+
+      <div id="footer">
+	<a href="/term">Terms of Use</a>
+	&nbsp; | &nbsp;
+	<a href="about">About</a>
+	&nbsp; | &nbsp;
+	<a href="contact">Contact Us</a>
+      </div>
+    </div>
+
+  </body>
+</html>

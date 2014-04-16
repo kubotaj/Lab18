@@ -1,0 +1,20 @@
+<% include header %>
+<% include menu %>
+
+   <div id="content">
+   <% if(rs.length > 0){ %>
+      <table>
+	<tr><th>Name</th></tr>
+	<% for (var i=0; rs.length > i; i++) { %>
+	<tr>
+	<td><a href="/user/?userid= rs[i].CustomerID %> "> <%= rs[i].Name %></a></td>
+	</tr>
+	<% } %>
+	</table>
+	<% } else { %>
+	   No users are entered into the database.
+	   <% } %>
+    </div>	   
+<% include resource %>
+
+<% include footer %>
